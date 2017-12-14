@@ -198,11 +198,11 @@
 					<artifactId>maven-javadoc-plugin</artifactId>
 					<version>3.0.0</version>
 					<configuration>
-						<exclude>org.jgrapht.experimental</exclude>
+						<excludePackageNames>org.jgrapht.experimental</excludePackageNames>
 						<show>protected</show>
 						<windowtitle>JGraphT : a free Java graph library</windowtitle>
 						<header>&lt;script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML,http://jgrapht.org/mathjax/mathjaxConfig.js"&gt;&lt;/script&gt;</header>
-						<additionalparam>--allow-script-in-comments</additionalparam>
+						<additionalOptions>--allow-script-in-comments</additionalOptions>
 					</configuration>
 				</plugin>
 
