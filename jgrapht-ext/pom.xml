@@ -75,6 +75,7 @@
 				</executions>
 				<configuration>
 					<instructions>
+						<Automatic-Module-Name>org.jgrapht.ext</Automatic-Module-Name>
 						<Bundle-Vendor>Barak Naveh, John V. Sichi and contributors (see
 							http://sourceforge.net/projects/jgrapht/)</Bundle-Vendor>
 						<!-- JGraph (source code at https://github.com/jgraph/legacy-jgraph5.git) 
@@ -104,8 +105,8 @@
 			<artifactId>jgraph</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>xmlunit</groupId>
-			<artifactId>xmlunit</artifactId>
+			<groupId>org.xmlunit</groupId>
+			<artifactId>xmlunit-core</artifactId>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
