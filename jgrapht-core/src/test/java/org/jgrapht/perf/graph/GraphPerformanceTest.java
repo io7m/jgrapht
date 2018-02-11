@@ -56,8 +56,6 @@ public class GraphPerformanceTest
     @State(Scope.Benchmark)
     private static abstract class DirectedGraphBenchmarkBase
     {
-
-        private Blackhole blackhole;
         protected GnmRandomGraphGenerator<Integer, DefaultWeightedEdge> rgg;
         private SimpleDirectedWeightedGraph<Integer, DefaultWeightedEdge> graph;
 
@@ -71,7 +69,7 @@ public class GraphPerformanceTest
         @Setup
         public void setup()
         {
-            blackhole = new Blackhole();
+
         }
 
         /**
@@ -94,7 +92,7 @@ public class GraphPerformanceTest
          * destroy graph
          */
         @Benchmark
-        public void graphPerformanceBenchmark()
+        public void graphPerformanceBenchmark(Blackhole blackhole)
         {
             for (int i = 0; i < NR_GRAPHS; i++) {
                 rgg = new GnmRandomGraphGenerator<>(
