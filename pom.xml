@@ -266,6 +266,50 @@
 					</execution>
 				</executions>
 			</plugin>
+
+			<!-- Invoke the compiler twice: Once to compile as JDK 9 bytecode, and then to
+			     recompile as JDK 8 bytecode. -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<executions>
+
+					<!--
+                      Compile everything as JDK 9 bytecode: This ensures that we get
+                      decent compilation errors such as missing "requires" directives
+                      in the module descriptor.
+                    -->
+
+					<execution>
+						<id>default-compile</id>
+						<configuration>
+							<release>9</release>
+						</configuration>
+					</execution>
+
+					<!--
+                      Recompile everything except for the module descriptor as JDK 8
+                      bytecode.
+                    -->
+
+					<execution>
+						<id>compile-8</id>
+						<goals>
+							<goal>compile</goal>
+						</goals>
+						<configuration>
+							<excludes>
+								<exclude>module-info.java</exclude>
+							</excludes>
+						</configuration>
+					</execution>
+				</executions>
+
+				<!-- These are the default settings for all executions. -->
+				<configuration>
+					<release>8</release>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
